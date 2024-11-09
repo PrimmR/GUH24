@@ -97,6 +97,11 @@ function slider_update(y) {
         opacity: [0, 1],
     }, 500);
 
+
+    // Earth greyness
+    percent = 1 - (y / (years.length - 1));
+    document.documentElement.style.setProperty('--earth-grey', percent);
+
     last_year = current_year;
 }
 

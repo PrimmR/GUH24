@@ -8,6 +8,8 @@
 
     font-family: "Hammersmith One", sans-serif;
     font-size: 1.2vw;
+
+    --earth-grey: 1;
 }
 
 body {
@@ -60,10 +62,8 @@ body {
     /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s;
     /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
+    transition: .2s;
     /* Height expand on hover */
-    transition: height .5s;
-
 }
 
 /* Mouse-over effects */
@@ -76,32 +76,24 @@ body {
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    /* Override default look */
     appearance: none;
     width: 2.5vw;
-    /* Set a specific slider handle width */
     height: 2.5vw;
-    /* Slider handle height */
-    background: #d3d3d3;
-    border-color: #888;
-    /* Green background */
+    background: url("img/earth.png");
+    background-size: 100%;
     cursor: pointer;
-    /* Cursor on hover */
-    border-radius: .5vw;
+    border: none;
+
 }
 
 .slider::-moz-range-thumb {
-    width: 2.5vw;
-    /* Set a specific slider handle width */
-    height: 2.5vw;
-    /* Slider handle height */
-    background: #d3d3d3;
-    border-color: #888;
-    /* Green background */
+    width: 5vw;
+    height: 5vw;
+    background: url("img/earth.png");
+    background-size: 5vw;
     cursor: pointer;
-    /* Cursor on hover */
-
-    border-radius: .5vw;
+    border: none;
+    filter: grayscale(var(--earth-grey));
 }
 
 #desc {
