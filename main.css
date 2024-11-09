@@ -10,11 +10,21 @@
     font-size: 1.2vw;
 
     --earth-grey: 1;
+
+    /* JUST WORK PLEASE INTERNET */
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 body {
     overflow-x: hidden;
     justify-content: center;
+
+
 }
 
 #bg {
