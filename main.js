@@ -21,12 +21,14 @@ years = [
 
 addEventListener("wheel", (event) => {
     let slide = document.getElementById("slidebar")
+    let old_slide_value = slide.value;
     if (event.wheelDelta > 0) {
         slide.value++;
     } else if (event.wheelDelta < 0) {
         slide.value--;
     }
-    slider_update(slide.value)
+    if (slide.value !== old_slide_value)
+        slider_update(slide.value)
 });
 
 function sort_years() {
@@ -38,8 +40,18 @@ function sort_years() {
 function slider_update(y) {
     current_year = years[y];
 
-    let output = document.getElementById("demo");
-    output.innerHTML = current_year.description;
+    let description = document.getElementById("desc");
+    description.innerHTML = "";
+
+    let year_title = document.createElement("h2");
+    year_title.innerHTML = current_year.year;
+    description.append(year_title);
+
+    let desc_desc = document.createElement("p");
+    desc_desc.innerHTML = current_year.description;
+    description.append(desc_desc);
+
+    // description.innerHTML = current_year.description;
 
 
     Array.from(document.getElementsByClassName("background")).forEach(e => {
@@ -62,7 +74,7 @@ function slider_update(y) {
 let current_year = years[0];
 let last_year = years[1];
 
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
     let slider = document.getElementById("slidebar");
     slider.max = years.length - 1;
 
