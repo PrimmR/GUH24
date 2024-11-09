@@ -5,35 +5,43 @@ years = [
         year_name: "4.6 Billion Years Ago",
         year: -4600000001,
         description: "Beginning of the solar system and the formation of the Earth. During this time, the surface of the Earth is extremely hot and the Earth is basically a giant magma ball floating in space.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 2,
+        y: 10,
     }
     ,
     {
         year_name: "4.6 Billion Years Ago - Eon: Hadean",
         year: -4600000000,
         description: "The start of the Hadean eon. This is the first and oldest eons of the Earth's history. During this period, the Earth's surface cooled, vaporized atmospheric water condensed into liquid water and eventually a superocean covering nearly all of the planet was formed, turning Earth into an ocean planet. Volcanic outgassing and asteroid bombardments further altered the Hadean atmosphere eventually into the nitrogen- and carbon dioxide-rich.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoBlueIPad.png",
+        x: 40,
+        y: 20,
     }
     ,
     {
         year_name: "4 Billion Years Ago - Eon: Archean",
         year: -4000000001,
         description: "This marks the end of the Hadean eon and the start of the second eon - Archean. Archean eon lasted for 1.5 billion years. In this period, the Earth was still mostly a water world: there was continental crust, but much of it was under an ocean deeper than today's oceans. Except for some rare relict crystals, today's oldest continental crust dates back to the Archean. Much of the geological detail of the Archean has been destroyed by subsequent activity. The Earth's atmosphere was also vastly different in composition from today's: the prebiotic atmosphere was a reducing atmosphere rich in methane and lacking free oxygen. The earliest known life, mostly represented by shallow-water microbial mats called stromatolites, started in the Archean and remained simple prokaryotes (archaea and bacteria) throughout the eon. The earliest photosynthetic processes, especially those by early cyanobacteria, appeared in the mid/late Archean and led to a permanent chemical change in the ocean and the atmosphere after the Archean.",
-        image: "img/PanoPurpIPad.png"
-    }
-    ,
+        image: "img/PanoPurpIPad.png",
+        x: 20,
+        y: 15,
+    },
     {
         year_name: "4.6 Billion Years Ago - Era: Eoarchean",
         year: -4000000000,
         description: "This is the start of the Eoarchean era which lasted about 400 million years. In this period, the Earth began to cool down, the atmosphere of the Earth was without oxygen and the pressure values ranged from 10 to 100 bar.",
-        image: "img/PanoPurpIPad.png"
-    }
-    ,
+        image: "img/PanoBlueIPad.png",
+        x: 50,
+        y: 5,
+    },
     {
         year_name: "Future",
         year: 2025,
         description: "Future",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 60,
+        y: 20,
     }
 ];
 
@@ -60,6 +68,8 @@ function slider_update(y) {
 
     let description = document.getElementById("desc");
     description.innerHTML = "";
+    description.style.top = `${current_year.y}vw`;
+    description.style.left = `${current_year.x}vw`;
 
     let year_title = document.createElement("h2");
     year_title.innerHTML = current_year.year_name;
@@ -69,13 +79,10 @@ function slider_update(y) {
     desc_desc.innerHTML = current_year.description;
     description.append(desc_desc);
 
-    // description.innerHTML = current_year.description;
-
 
     Array.from(document.getElementsByClassName("background")).forEach(e => {
         e.style.zIndex = -11
     });
-
 
     let last_image = document.getElementById(`bg_${last_year.year}`);
     last_image.style.zIndex = -10;
@@ -86,11 +93,11 @@ function slider_update(y) {
         opacity: [0, 1],
     }, 1000);
 
-    last_year = current_year
+    last_year = current_year;
 }
 
 let current_year = years[0];
-let last_year = years[1];
+let last_year = years[0];
 
 document.addEventListener("DOMContentLoaded", () => {
     let slider = document.getElementById("slidebar");
@@ -106,9 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("bg").append(image);
     });
 
+    // Jank setup
+    slider_update(0);
 
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function () {
-        slider_update(this.value)
+        slider_update(this.value);
     }
 });

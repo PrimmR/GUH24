@@ -81,7 +81,6 @@ body {
     /* Green background */
     cursor: pointer;
     /* Cursor on hover */
-
     border-radius: .5vw;
 }
 
@@ -102,9 +101,11 @@ body {
 #desc {
     position: absolute;
     background-color: #fff;
-    padding: 5vw;
+    padding: 1vw;
     border-radius: 2vw;
+    border-style: dashed;
+    border-width: 0.4vw;
+    border-color: #888;
 
-    top: 3vw;
-    left: 2vw;
+    max-width: 40vw;
 }
