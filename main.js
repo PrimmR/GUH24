@@ -79,6 +79,10 @@ function slider_update(y) {
     desc_desc.innerHTML = current_year.description;
     description.append(desc_desc);
 
+    description.animate({
+        opacity: [0, 1],
+        left: [`${current_year.x + 2}vw`, `${current_year.x}vw`]
+    }, 500);
 
     Array.from(document.getElementsByClassName("background")).forEach(e => {
         e.style.zIndex = -11
@@ -91,7 +95,7 @@ function slider_update(y) {
     top_image.style.zIndex = -9;
     top_image.animate({
         opacity: [0, 1],
-    }, 1000);
+    }, 500);
 
     last_year = current_year;
 }
