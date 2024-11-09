@@ -2,23 +2,6 @@
 
 years = [
     {
-        year: 3,
-        description: "Hello",
-        image: "img/PanoBlueIPad.png"
-    },
-    {
-        year: 27,
-        description: "Goodbye",
-        image: "img/PanoOrangeIPad.png"
-    }
-    ,
-    {
-        year: 5,
-        description: "Image 5",
-        image: "img/PanoPurpIPad.png"
-    }
-    ,
-    {
         year_name: "4.6 Billion Years Ago",
         year: -4600000001,
         description: "Beginning of the solar system and the formation of the Earth. During this time, the surface of the Earth is extremely hot and the Earth is basically a giant magma ball floating in space.",
@@ -79,7 +62,7 @@ function slider_update(y) {
     description.innerHTML = "";
 
     let year_title = document.createElement("h2");
-    year_title.innerHTML = current_year.year;
+    year_title.innerHTML = current_year.year_name;
     description.append(year_title);
 
     let desc_desc = document.createElement("p");
