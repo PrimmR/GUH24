@@ -39,77 +39,98 @@ years = [
         year_name: "3.6 Billion Years Ago - Era: Paleoarchean",
         year: -3600000000,
         description: "The Paleoarchean era lasted for about 400 million years. The earliest confirmed evidence of life comes from this era, and Vaalbara, one of Earth's earliest supercontinents, may have formed during this era. ",
-        image: "img/PanoPurpIPad.png"
-    }
-    ,
+        image: "img/PanoPurpIPad.png",
+        x: 25,
+        y: 30,
+    },
     {
         year_name: "3.2 Billion Years Ago - Era: Mesoarchean",
         year: -3200000000,
         description: "The Mesoarchean era lasted for about 400 million years. This was the period when the first glaciation on Earth happened. The Pongola glaciation, which occurred in what is now South Africa. This was the first climate disaster on earth, as ice sheets covered areas of Swaziland and South Africa.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 55,
+        y: 35,
     }
     ,
     {
         year_name: "2.8 Billion Years Ago - Era: Neoarchean",
         year: -2800000000,
         description: "The Neoarchean era is a 300-million-year period which the Earth warmed up from the galaciation. The Earth continue to develop an atmosphere and oxygen content in the atmosphere slowly rised to around 0.1%",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 30,
+        y: 30,
     }
     ,
     {
         year_name: "2.5 Billion Years Ago - Eon: Proterozoic",
         year: -2500000001,
         description: "This marks the end of the Archean Eon and the start of the third, Proterozoic Eon. During this eon, Free oxygen in the atmosphere increased significantly as a result of biological activity. The most important period of change occurred between 2.3 billion and 1.8 billion years ago when free oxygen began to accumulate in the atmosphere.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 20,
+        y: 30,
     }
     ,
     {
         year_name: "2.5 Billion Years Ago - Era: Paleoproterozoic",
         year: -2500000000,
         description: "The Paleoproterozoic era was a 900 million period where all surface reactants like iron were exhausted. Oxygen content rises in this period rises to around 1.5% at the end of the era.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 10,
+        y: 20,
     }
     ,
     {
         year_name: "1.6 Billion Years Ago - Era: Mesoproterozoic",
         year: -1600000000,
         description: "1.6 billion years ago, the Earth entered into a new era. During this period, Columbia supercontinent was broken up and another supercontinent - Rodinia was formed. Global climate was warm with very little evidence of glaciation suggesting a high concentration of greenhouses gases in the atmosphere.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 20,
+        y: 35,
     }
     ,
     {
         year_name: "1 Billion Years Ago - Era: Neoproterozoic",
         year: -1000000000,
         description: "The last era of the three eras in the Proterozoic eon - Neoproterozoic Era, lasted around  460 million years. During this period, oxygen level keep rising and approches modern oxygen level. However, the Earth also experience two global glaciation.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 10,
+        y: 5,
     }
     ,
     {
         year_name: "540 Million Years Ago - Eon: Phanerozoic",
         year: -540000001,
         description: "Phanerozoic began 540 million years ago and continues to the present. This is the period which abundant animal and plant life has proliferated and diversified. Oxygen level and temperature has sattled down to around the present day value. However, there were three major glaciations in this period.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 30,
+        y: 35,
     }
     ,
     {
         year_name: "540 Million Years Ago - Era: Paleozoic",
         year: -540000000,
         description: "Paleozoic Era lasted for about 287 million years. During this period, it was warm worldwide, but would be followed by an ice age, which caused glaciers to form, sending sea levels downward.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 40,
+        y: 10,
     }
     ,
     {
         year_name: "252 Million Years Ago - Era: Mesozoic",
         year: -252000000,
         description: "The Mesozoic Era lasted for 186 million years, the Earth in this period is warm due to an increase of greenhouse gases in the atmosphere, this also cause the sea level to rise.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 20,
+        y: 40,
     }
     ,
     {
         year_name: "66 Million Years Ago - Era: Cenozoic",
         year: -66000000,
         description: "The Cenozoic is Earth's current geological era. Oxygen and atmospheric content stablised and Earth witnessed a rapid diversification of life-forms.",
-        image: "img/PanoPurpIPad.png"
+        image: "img/PanoPurpIPad.png",
+        x: 35,
+        y: 20,
     }
     ,
     {
