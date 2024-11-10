@@ -22,7 +22,7 @@ years = [
     {
         year_name: "4 Billion Years Ago - Eon: Archean",
         year: -4000000001,
-        description: "This marks the end of the Hadean eon and the start of the second eon - Archean. Archean eon lasted for 1.5 billion years. In this period, the Earth was still mostly a water world: there was continental crust, but much of it was under an ocean deeper than today's oceans. Except for some rare relict crystals, today's oldest continental crust dates back to the Archean. Much of the geological detail of the Archean has been destroyed by subsequent activity. The Earth's atmosphere was also vastly different in composition from today's: the prebiotic atmosphere was a reducing atmosphere rich in methane and lacking free oxygen. The earliest known life, mostly represented by shallow-water microbial mats called stromatolites, started in the Archean and remained simple prokaryotes (archaea and bacteria) throughout the eon. The earliest photosynthetic processes, especially those by early cyanobacteria, appeared in the mid/late Archean and led to a permanent chemical change in the ocean and the atmosphere after the Archean.",
+        description: "This marks the end of the Hadean eon and the start of the second eon - Archean. Archean eon lasted for 1.5 billion years. In this period, the Earth was still mostly a water world: there was continental crust, but much of it was under an ocean deeper than today's oceans. The Earth's atmosphere was also vastly different in composition from today's: the prebiotic atmosphere was a reducing atmosphere rich in methane and lacking free oxygen.",
         image: "img/PanoPurpIPad.png",
         x: 20,
         y: 15,
@@ -121,7 +121,7 @@ years = [
         description: "The Mesozoic Era lasted for 186 million years, the Earth in this period is warm due to an increase of greenhouse gases in the atmosphere, this also cause the sea level to rise.",
         image: "img/PanoPurpIPad.png",
         x: 20,
-        y: 40,
+        y: 30,
     }
     ,
     {
@@ -134,12 +134,75 @@ years = [
     }
     ,
     {
+        year_name: "2.5 Million Years Ago - Quaternary Period",
+        year: -2500000,
+        description: "The Quaternary Period is the current geological system that the Earth is currently in. There is permanent ice on the polar regions of the Earth.",
+        image: "img/PanoPurpIPad.png",
+        x: 10,
+        y: 5,
+    }
+    ,
+    {
+        year_name: "Year 1760 - Industrial Revolution in Britain",
+        year: 1760,
+        description: "The start of the Industrial Revolution about 260 years ago means mankind gained the power to quickly alter the atmosphere of their home planet. The excessive use of coal and fossile fuels released a lot of greenhouse gases into the atmosphere. This immediately caused an noticible increase in the global average temperature since then.",
+        image: "img/PanoPurpIPad.png",
+        x: 1,
+        y: 1,
+    }
+    ,
+    {
+        year_name: "Year 1990 - Deforestation",
+        year: 1990,
+        description: "",
+        image: "img/PanoPurpIPad.png",
+        x: 60,
+        y: 15,
+    }
+    ,
+    {
+        year_name: "Year 2000 - Deforestation",
+        year: 2000,
+        description: "",
+        image: "img/PanoPurpIPad.png",
+        x: 10,
+        y: 20,
+    }
+    ,
+    {
+        year_name: "Year 2010 - Deforestation",
+        year: 2010,
+        description: "",
+        image: "img/PanoPurpIPad.png",
+        x: 20,
+        y: 5,
+    }
+    ,
+    {
+        year_name: "Year 2015 - Deforestation",
+        year: 2015,
+        description: "",
+        image: "img/PanoPurpIPad.png",
+        x: 60,
+        y: 30,
+    }
+    ,
+    {
+        year_name: "10th November 2024",
+        year: 2024,
+        description: "",
+        image: "img/PanoPurpIPad.png",
+        x: 40,
+        y: 20,
+    }
+    ,
+    {
         year_name: "Future",
         year: 2025,
         description: "Future",
         image: "img/PanoPurpIPad.png",
-        x: 60,
-        y: 20,
+        x: 2,
+        y: 2,
     }
 ];
 
