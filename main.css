@@ -29,6 +29,21 @@ img {
     pointer-events: none;
 }
 
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+.long {
+    width: 100%;
+}
+
+#calcOut {
+    font-weight: bold;
+    font-size: 2vw;
+}
+
 #source {
     position: absolute;
     right: 0;

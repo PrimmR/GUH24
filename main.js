@@ -220,12 +220,30 @@ years = [
     {
         year_name: "Future",
         year: 2025,
-        description: "Future",
+        description: '<label for="c02">C02 (0-20 % growth)</label><input type="range" min="0" max="20" value="10" id="c02" list="c02" class="long"><label for="timescale">Timescale (0-1000 years)</label><input type="range" min="0" max="1000" value="50" id="timescale" class="long"><label for="timescale">Deforestation (0-200 MHa)</label><input type="range" min="0" max="200" value="10" id="defrst" class="long"><p id="calcOut"></p><p id="calcDesc"></p>',
         image: "img/PanoPurpIPad.png",
         x: 2,
         y: 2,
     }
 ];
+
+wordings = [
+    "This implies a turn towards a global ice age. New land would be revealed, and many inhabited areas of europe, asia and north america would become uninhabitable from ice sheet growth.",
+    "Smaller, but still noticeable effects include slightly higher tides and gradual erosion of coastal land. This is an ideal rise in sea level, made more likely with cleaner energy and political reform.",
+    "This level typically increases the frequency of flooding to a given height by a factor of approximately 10. Coastal areas would experience more frequent \"sunny day flooding,\" where high tides alone are enough to cause flooding, even without storm events.<br>Increased Flood Severity During Storms: Even a modest rise in sea level means that storms push water farther inland. Coastal storms, including hurricanes and typhoons, would have more severe impacts, with flooding reaching areas that previously would not have been affected.",
+    "Rising tides drive salt water farther inland, contaminating freshwater drinking supplies and crippling ecosystems that can't survive the increased salinity",
+    "Low-lying communities face the need to relocate as the frequency and severity of flooding become unsustainable.<br>Farmland near coastlines is at increased risk from saltwater contamination, leading to lower crop yields and possible abandonment of arable land.<br>The cost to build barriers, raise roads, and reinforce coastal infrastructure rises substantially.",
+    "This could displace tens of millions of people, particularly in developing countries. Geographic Information System (GIS) analyses have shown that such an increase would inundate critical land areas, leading to severe scarcity. This could lead to increased competition over freshwater resources, and an increased need for migration. Large displacements from countries such as India, China and the United States by coastal cities would occur, leading to increased political pressures and border disputes.<br>Low-elevation coastal zones, which are home to a significant portion of the global population, are especially vulnerable to this threat.<br>Coastal wetlands, coral reefs, and other critical ecosystems would be severely affected, leading to loss of biodiversity and degradation of natural habitats. Saltwater intrusion into freshwater aquifers could contaminate water supplies, further exacerbating the challenges faced by affected communities",
+    "This is the more extreme end of climate projections, typically projected to 2200.<br>There would be massive economic costs and infrastructure losses. Ports, power plants, wastewater treatment facilities, and transportation networks would be severely affected or destroyed. Much of the world's critical infrastructure is located near coastlines, and retrofitting or moving these assets would be costly.<br>Salt contamination of freshwater sources could severely impact both drinking water and agricultural water supplies, especially in regions already facing water",
+    "At this elevation, even Mount Everest would be submerged underwater. This level of flooding has never been documented, and would be catastrophic to all land life."
+]
+
+function projection(c02_growth_rate, timescale, deforestation_rate) {
+    C02_ppm = ((37.4 * c02_growth_rate * timescale - (7.6 - (7.6 / 4000) * deforestation_rate * timescale)) * 0.7) / 2.13; radiating_force = 5.35 * Math.log((C02_ppm + 419.3) / 280); temperature_change = radiating_force * 3;
+    glacier_volume_change = temperature_change * .055 * 30000000; thermal_expansion = 1335000000 * 0.000214 * temperature_change;
+    height_gained = (glacier_volume_change / 1335000000 + thermal_expansion / 139000000)
+    return height_gained
+}
 
 addEventListener("wheel", (event) => {
     let slide = document.getElementById("slidebar")
@@ -245,11 +263,29 @@ function sort_years() {
     })
 }
 
+function update_thingamy(v) {
+    let vee = Math.round(v * 100) / 100;
+    document.getElementById("calcOut").innerHTML = `${vee}m of Sea Level Rise`;
+
+    let desc = "";
+    if (vee <= 0) desc = wordings[0]
+    else if (vee <= 0.1) desc = wordings[1]
+    else if (vee <= 0.3) desc = wordings[2]
+    else if (vee <= 0.5) desc = wordings[3]
+    else if (vee <= 0.7) desc = wordings[4]
+    else if (vee <= 3) desc = wordings[5]
+    else if (vee <= 5) desc = wordings[6]
+    else if (vee <= 8848) desc = wordings[7]
+    else desc = wordings[8]
+
+    document.getElementById("calcDesc").innerHTML = `${desc}`
+}
+
 function slider_update(y) {
     current_year = years[y];
 
     let source = document.getElementById("source");
-    source.innerHTML = current_year.source
+    source.innerHTML = `Image Source: ${current_year.source}`
 
     let description = document.getElementById("desc");
     description.innerHTML = "";
@@ -282,6 +318,27 @@ function slider_update(y) {
         opacity: [0, 1],
     }, 500);
 
+
+    // This needs to just work please
+    if (current_year.year_name == "Future") {
+        let uno = document.getElementById("c02");
+        let dos = document.getElementById("timescale");
+        let tres = document.getElementById("defrst");
+
+        uno.style.width = "40vw";
+
+        // This never happened
+        uno.oninput = function () {
+            update_thingamy(projection(uno.value, dos.value, tres.value))
+
+        };
+        dos.oninput = function () {
+            update_thingamy(projection(uno.value, dos.value, tres.value))
+        };
+        tres.oninput = function () {
+            update_thingamy(projection(uno.value, dos.value, tres.value))
+        };
+    }
 
     // Earth greyness
     percent = 1 - (y / (years.length - 1));
