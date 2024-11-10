@@ -248,6 +248,9 @@ function sort_years() {
 function slider_update(y) {
     current_year = years[y];
 
+    let source = document.getElementById("source");
+    source.innerHTML = current_year.source
+
     let description = document.getElementById("desc");
     description.innerHTML = "";
     description.style.top = `${current_year.y}vw`;
