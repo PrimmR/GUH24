@@ -8,6 +8,7 @@ years = [
         image: "img/PanoPurpIPad.png",
         x: 2,
         y: 10,
+        source: "hi",
     }
     ,
     {
@@ -121,7 +122,7 @@ years = [
         description: "The Mesozoic Era lasted for 186 million years, the Earth in this period is warm due to an increase of greenhouse gases in the atmosphere, this also cause the sea level to rise.",
         image: "img/PanoPurpIPad.png",
         x: 20,
-        y: 40,
+        y: 35,
     }
     ,
     {
@@ -163,6 +164,9 @@ function sort_years() {
 
 function slider_update(y) {
     current_year = years[y];
+
+    let source = document.getElementById("source");
+    source.innerHTML = current_year.source
 
     let description = document.getElementById("desc");
     description.innerHTML = "";
