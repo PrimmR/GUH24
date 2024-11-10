@@ -235,7 +235,7 @@ years = [
         year_name: "Future",
         year: 2025,
         description: "Future",
-        description: '<label for="c02">C02 (0-5,000,000,000 tonnes)</label><input type="range" min="0" max="5000000000" value="10" id="c02" list="c02" class="long"><label for="timescale">Timescale (0-1000 years)</label><input type="range" min="0" max="1000" value="50" id="timescale" class="long"><label for="timescale">Deforestation (0-200 MHa)</label><input type="range" min="0" max="200" value="10" id="defrst" class="long"><p id="calcOut"></p><p id="calcDesc"></p>',
+        description: '<label for="CO2">CO2 (0-5,000,000,000 tonnes)</label><input type="range" min="0" max="5000000000" value="10" id="CO2" list="CO2" class="long"><label for="timescale">Timescale (0-1000 years)</label><input type="range" min="0" max="1000" value="50" id="timescale" class="long"><label for="timescale">Deforestation (0-200 MHa)</label><input type="range" min="0" max="200" value="10" id="defrst" class="long"><p id="calcOut"></p><p id="calcDesc"></p>',
         image: "img/Future.png",
         x: 2,
         y: 2,
@@ -254,8 +254,8 @@ wordings = [
     "At this elevation, even Mount Everest would be submerged underwater. This level of flooding has never been documented, and would be catastrophic to all land life."
 ]
 
-function projection(c02_growth_rate, timescale, deforestation_rate) {
-    C02_ppm = ((250.5 * c02_growth_rate * timescale - (4000 - deforestation_rate * timescale) * (0.3 * 250.5))) * 0.7 / 2.13; radiating_force = 5.35 * Math.log((C02_ppm + 419.3) / 280); temperature_change = radiating_force * 3;
+function projection(CO2_growth_rate, timescale, deforestation_rate) {
+    CO2_ppm = ((250.5 * CO2_growth_rate * timescale - (4000 - deforestation_rate * timescale) * (0.3 * 250.5))) * 0.7 / 2.13; radiating_force = 5.35 * Math.log((CO2_ppm + 419.3) / 280); temperature_change = radiating_force * 3;
     glacier_volume_change = temperature_change * .055 * 30000000; thermal_expansion = 1335000000 * 0.000214 * temperature_change;
     height_gained = (glacier_volume_change / 1335000000 + thermal_expansion / 139000000)
     height_gained ||= 0
@@ -338,7 +338,7 @@ function slider_update(y) {
 
     // This needs to just work please
     if (current_year.year_name == "Future") {
-        let uno = document.getElementById("c02");
+        let uno = document.getElementById("CO2");
         let dos = document.getElementById("timescale");
         let tres = document.getElementById("defrst");
 
