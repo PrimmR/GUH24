@@ -1,14 +1,12 @@
 import pandas as pd
-from pandas import DataFrame
 import matplotlib.pyplot as plt
 import numpy as np
 import geopandas as gpd
 from fuzzywuzzy import process
-from shapely.geometry import MultiPolygon
 import scipy.stats as stats
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
+
 
 
 
@@ -111,7 +109,7 @@ df2015= pd.DataFrame.from_dict(countryNums2015,orient = 'index', columns=['Total
 df2015.reset_index(names=['Country'],inplace = True)
 
 wCountries = worldMap["Country"].str.lower().str.strip()
-countries = df2010["Country"].str.lower().str.strip()
+countries = df1990["Country"].str.lower().str.strip()
 
 
 
@@ -128,39 +126,16 @@ for i in range (0,len(wCountries)):
 newWorldMap= pd.DataFrame.from_dict(countryGeo,orient = 'index', columns=['Geography'])
 newWorldMap.reset_index(names=['Country'],inplace = True)
 
-countryMap=(newWorldMap.merge(df2010, on="Country"))
+countryMap=(newWorldMap.merge(df1990, on="Country"))
 
 
 
 
-
+'''
 countryMap = gpd.GeoDataFrame(countryMap, geometry='Geography')
 
 
 countryMap = countryMap.set_crs("EPSG:4326")
-
-'''
-
-def changeToMultipolygon(geom):
-    if geom.geom_type == 'Polygon':
-        return MultiPolygon([geom])
-    elif geom.geom_type == 'MultiPolygon':
-        return geom
-    else:
-        return None
-
-    
-
-
-countryMap['geometry'] = countryMap['Geography'].apply(changeToMultipolygon)
-countryMap = countryMap.dropna(subset=['geometry'])
-'''
-
-print(countryMap)
-
-specific_data = countryMap.loc[countryMap['Country'] == 'brazil']
-brazil_geometry = specific_data['Geography'].values[0]
-print(brazil_geometry)
 
 title = 'Deforestation Rate'
 column = 'Total Forest Cover'
@@ -191,7 +166,7 @@ plt.show()
 
 
 
-'''
+
 totalList = []
 totalList.append(worldList[0])
 totalList.append(worldList[0]+worldList[1])
@@ -218,16 +193,17 @@ if r> 0.7 or r< -0.7:
     X_future = np.array(range(2015, 2031)).reshape(-1,1)
     y_future = model.predict(X_future)
 
-    plt.scatter(X, y, color='blue')  
-    plt.plot(X, model.predict(X), color='red', linewidth=2) 
+    plt.scatter(X, y, color='rebeccapurple')  
+    plt.plot(X, model.predict(X), color='darkcyan', linewidth=2) 
 
-    plt.scatter(X_future, y_future, color = "green")
-    plt.plot(X_future, y_future, color = "red")
+    plt.plot(X_future, y_future, color = "darkorange")
 
-    plt.title("Linear Regression Example")
+    plt.title("Predicting World Deforestation Rates (Orange Line for prediction)")
     plt.xlabel("Year")
     plt.ylabel("Forest Area (hectares)")
     plt.show()
+
+'''
 
 brazilTotals = []
 brazilTotals.append(countryNums1990['brazil'])
@@ -250,8 +226,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 slope, intercept, r, p, std_err = stats.linregress(x, totalList)
 
-print(r)
-
 if r> 0.7 or r< -0.7:
 
     model = LinearRegression()
@@ -263,19 +237,18 @@ if r> 0.7 or r< -0.7:
     X_future = np.array(range(2015, 2031)).reshape(-1,1)
     y_future = model.predict(X_future)
 
-    plt.scatter(X, y, color='blue')  
-    plt.plot(X, model.predict(X), color='red', linewidth=2) 
+    plt.scatter(X, y, color='rebeccapurple')  
+    plt.plot(X, model.predict(X), color='darkcyan', linewidth=2) 
 
-    plt.plot(X_future, y_future, color = "green")
+    plt.plot(X_future, y_future, color = "darkorange")
 
-    plt.title("Brazil Prediction")
+    plt.title("Brazil Deforestation Prediction (Orange line for prediction)")
     plt.xlabel("Year")
     plt.ylabel("Forest Area (hectares)")
     plt.show()
-else: 
-    print("BBBBBBBBB")
 
-'''
+
+
 
 
     
