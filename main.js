@@ -235,7 +235,7 @@ years = [
         year_name: "Future",
         year: 2025,
         description: "Future",
-        description: '<label for="c02">C02 (0-20 % growth)</label><input type="range" min="0" max="20" value="10" id="c02" list="c02" class="long"><label for="timescale">Timescale (0-1000 years)</label><input type="range" min="0" max="1000" value="50" id="timescale" class="long"><label for="timescale">Deforestation (0-200 MHa)</label><input type="range" min="0" max="200" value="10" id="defrst" class="long"><p id="calcOut"></p><p id="calcDesc"></p>',
+        description: '<label for="c02">C02 (0-50 % growth)</label><input type="range" min="0" max="50" value="10" id="c02" list="c02" class="long"><label for="timescale">Timescale (0-1000 years)</label><input type="range" min="0" max="1000" value="50" id="timescale" class="long"><label for="timescale">Deforestation (0-200 MHa)</label><input type="range" min="0" max="200" value="10" id="defrst" class="long"><p id="calcOut"></p><p id="calcDesc"></p>',
         image: "img/Future.png",
         x: 2,
         y: 2,
